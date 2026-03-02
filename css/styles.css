@@ -908,9 +908,21 @@ button:focus-visible {
   .search-bar-wrap {
     padding: 0 12px;
   }
+  .charts-row {
+    padding: 0 8px;
+  }
+  .dashboard-page {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 60px;
+  }
 }
 
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .menu-toggle {
     display: flex;
   }
@@ -939,6 +951,28 @@ button:focus-visible {
 
   .nav-actions .btn-primary {
     display: none;
+  }
+
+  /* mobile dropdown styling */
+  .nav-dropdown-menu {
+    position: static;
+    display: none;
+    background: var(--color-bg);
+    margin-top: 8px;
+    box-shadow: none;
+    border-radius: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    padding: 12px 0 12px 20px;
+  }
+
+  .nav-dropdown.open .nav-dropdown-menu {
+    display: block;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 8px 0;
   }
 
   .hero {
@@ -1004,10 +1038,32 @@ button:focus-visible {
 
   .charts-row {
     grid-template-columns: 1fr;
+    padding: 0 12px;
+    max-width: 100%;
   }
 
   .chart-card {
-    height: 280px;
+    height: 200px;
+    padding: 16px;
+    overflow: hidden;
+  }
+
+  .chart-container {
+    height: 120px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .dashboard-page {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .dashboard-page h1 {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
   }
 }
 
