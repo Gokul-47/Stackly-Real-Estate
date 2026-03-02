@@ -63,6 +63,13 @@ body {
   height: 72px;
 }
 
+/* logo styles */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* small space between image and text */
+}
+
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
@@ -70,6 +77,17 @@ body {
   text-decoration: none;
   letter-spacing: -0.02em;
   transition: transform var(--transition), color var(--transition);
+}
+
+/* ensure logo image is not oversized */
+.logo-img {
+  max-height: 40px;
+  width: auto;
+  /* tint the logo to match the theme accent color
+     works best if the source is a monochrome icon; for full control
+     consider using an SVG where you can set fill="currentColor" */
+  filter: grayscale(1) brightness(0) sepia(1) saturate(500%) hue-rotate(20deg);
+  /* adjust the hue-rotate value if the color isn't perfect */
 }
 
 .logo:hover {
@@ -106,6 +124,11 @@ body {
 
 .nav-links a:hover {
   color: var(--color-dark);
+}
+
+/* form error state */
+.input-error {
+  border-color: #e74c3c !important;
 }
 
 .nav-links a:hover::after {
@@ -652,6 +675,11 @@ body {
   color: var(--color-white);
   margin-bottom: 16px;
   display: inline-block;
+}
+
+/* smaller logo size when used in footer */
+.footer .logo-img {
+  max-height: 30px;
 }
 
 .footer-brand p {

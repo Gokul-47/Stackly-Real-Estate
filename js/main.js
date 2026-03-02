@@ -87,12 +87,77 @@
     els.forEach(function (el) { observer.observe(el); });
   }
 
+  // contact form validation and redirect
+  function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    const nameInput = document.getElementById('contact-name');
+    const emailInput = document.getElementById('contact-email');
+    const messageInput = document.getElementById('contact-message');
+
+    function showError(input, message) {
+      const err = input.parentElement.querySelector('.field-error');
+      if (err) {
+        err.textContent = message;
+        err.style.display = 'block';
+      }
+      input.classList.add('input-error');
+    }
+    function clearError(input) {
+      const err = input.parentElement.querySelector('.field-error');
+      if (err) {
+        err.textContent = '';
+        err.style.display = 'none';
+      }
+      input.classList.remove('input-error');
+    }
+
+    function validate() {
+      let valid = true;
+      // name nonempty
+      if (!nameInput.value.trim()) {
+        showError(nameInput, 'Name is required');
+        valid = false;
+      } else {
+        clearError(nameInput);
+      }
+      // simple email check
+      const emailVal = emailInput.value.trim();
+      if (!emailVal) {
+        showError(emailInput, 'Email is required');
+        valid = false;
+      } else if (!/^\S+@\S+\.\S+$/.test(emailVal)) {
+        showError(emailInput, 'Enter a valid email');
+        valid = false;
+      } else {
+        clearError(emailInput);
+      }
+      // message
+      if (!messageInput.value.trim()) {
+        showError(messageInput, 'Message cannot be empty');
+        valid = false;
+      } else {
+        clearError(messageInput);
+      }
+      return valid;
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (validate()) {
+        // all good, redirect to 404
+        window.location.href = '404.html';
+      }
+    });
+  }
+
   // Run only on pages that are not 404 and not dashboard (dashboard has its own script for charts)
   function init() {
     init404Redirects();
     initMainNav();
     initHeaderScroll();
     initReveal();
+    initContactForm();
   }
 
   if (document.readyState === 'loading') {
