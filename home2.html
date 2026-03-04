@@ -23,14 +23,25 @@
 <body>
   <header class="header">
     <nav class="nav-container">
-      
+      <!-- logo block: image + company name grouped -->
       <div class="logo-wrap">
         <img src="assets/logo.png" alt="Stackly Logo" class="logo-img">
         <a href="index.html" class="logo">Stackly</a>
       </div>
-      <ul class="nav-links nav-links-home2">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#section-features">Features</a></li>
+      <ul class="nav-links">
+        <li class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            Home
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 4.5L6 7.5L9 4.5"/>
+            </svg>
+          </button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li><a href="index.html" role="menuitem">Home 1</a></li>
+            
+          </ul>
+        </li>
+         <li><a href="#section-features">Features</a></li>
        
         <li><a href="#section-stats">Stats</a></li>
        
@@ -38,7 +49,6 @@
         
         <li><a href="#section-partners">Partners</a></li>
         <li><a href="#section-faq">FAQ</a></li>
-        
       </ul>
       <div class="nav-actions">
         <a href="dashboard.html" class="btn-primary">Dashboard</a>
@@ -54,7 +64,7 @@
       <div class="hero-content">
         <h1>Another Way to Find Your Home</h1>
         <p>Home2 offers a fresh perspective on property search across Tamil Nadu with advanced filters and locality insights.</p>
-        <a href="#section-cta" class="btn-primary">Get Started</a>
+        <a href="404.html" class="btn-primary">Get Started</a>
       </div>
       <div class="hero-image-wrap">
         <img src="assets/img7.webp" alt="Modern home">

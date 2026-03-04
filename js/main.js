@@ -151,6 +151,21 @@
     });
   }
 
+  // search bar behavior: only redirect when any filter is chosen
+  function initSearchBar() {
+    const btn = document.querySelector('.btn-search');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      const loc = document.querySelector('select[aria-label="Location"]').value;
+      const type = document.querySelector('select[aria-label="Type"]').value;
+      const price = document.querySelector('select[aria-label="Price Range"]').value;
+      // redirect only if at least one option is selected
+      if (loc || type || price) {
+        window.location.href = '404.html';
+      }
+    });
+  }
+
   // Run only on pages that are not 404 and not dashboard (dashboard has its own script for charts)
   function init() {
     init404Redirects();
@@ -158,6 +173,7 @@
     initHeaderScroll();
     initReveal();
     initContactForm();
+    initSearchBar();
   }
 
   if (document.readyState === 'loading') {
