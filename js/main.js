@@ -151,16 +151,77 @@
     });
   }
 
-  // search bar behavior: only redirect when any filter is chosen
+  // search bar behavior: require all three filters and show validation errors
   function initSearchBar() {
     const btn = document.querySelector('.btn-search');
     if (!btn) return;
+    
+    const locationSelect = document.querySelector('select[aria-label="Location"]');
+    const typeSelect = document.querySelector('select[aria-label="Type"]');
+    const priceSelect = document.querySelector('select[aria-label="Price Range"]');
+    
+    const locationField = document.getElementById('location-field');
+    const typeField = document.getElementById('type-field');
+    const priceField = document.getElementById('price-field');
+    
+    const locationError = document.getElementById('location-error');
+    const typeError = document.getElementById('type-error');
+    const priceError = document.getElementById('price-error');
+    
+    // Clear errors when field changes
+    function setupFieldListener(select, field, errorMsg) {
+      select.addEventListener('change', function () {
+        if (select.value) {
+          field.classList.remove('field-error');
+          errorMsg.style.display = 'none';
+        }
+      });
+    }
+    
+    setupFieldListener(locationSelect, locationField, locationError);
+    setupFieldListener(typeSelect, typeField, typeError);
+    setupFieldListener(priceSelect, priceField, priceError);
+    
+    // Handle search button click
     btn.addEventListener('click', function () {
-      const loc = document.querySelector('select[aria-label="Location"]').value;
-      const type = document.querySelector('select[aria-label="Type"]').value;
-      const price = document.querySelector('select[aria-label="Price Range"]').value;
-      // redirect only if at least one option is selected
-      if (loc || type || price) {
+      const locValue = locationSelect.value;
+      const typeValue = typeSelect.value;
+      const priceValue = priceSelect.value;
+      
+      let isValid = true;
+      
+      // Validate location
+      if (!locValue) {
+        locationField.classList.add('field-error');
+        locationError.style.display = 'block';
+        isValid = false;
+      } else {
+        locationField.classList.remove('field-error');
+        locationError.style.display = 'none';
+      }
+      
+      // Validate type
+      if (!typeValue) {
+        typeField.classList.add('field-error');
+        typeError.style.display = 'block';
+        isValid = false;
+      } else {
+        typeField.classList.remove('field-error');
+        typeError.style.display = 'none';
+      }
+      
+      // Validate price
+      if (!priceValue) {
+        priceField.classList.add('field-error');
+        priceError.style.display = 'block';
+        isValid = false;
+      } else {
+        priceField.classList.remove('field-error');
+        priceError.style.display = 'none';
+      }
+      
+      // Only redirect if all valid
+      if (isValid) {
         window.location.href = '404.html';
       }
     });

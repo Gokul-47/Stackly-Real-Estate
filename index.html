@@ -54,42 +54,51 @@
 
     <div class="search-bar-wrap">
       <div class="search-bar">
-        <div class="field">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-          </svg>
-          <select aria-label="Location">
-            <option value="">Location</option>
-            <option>Chennai</option>
-            <option>Coimbatore</option>
-            <option>Madurai</option>
-            <option>Trichy</option>
-            <option>Salem</option>
-            <option>Erode</option>
-          </select>
+        <div style="flex: 1; min-width: 140px;">
+          <div class="field" id="location-field">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <select aria-label="Location">
+              <option value="">Location</option>
+              <option>Chennai</option>
+              <option>Coimbatore</option>
+              <option>Madurai</option>
+              <option>Trichy</option>
+              <option>Salem</option>
+              <option>Erode</option>
+            </select>
+          </div>
+          <div class="field-error-msg" id="location-error">Please select a Location</div>
         </div>
-        <div class="field">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-          </svg>
-          <select aria-label="Type">
-            <option value="">Type</option>
-            <option>House</option>
-            <option>Apartment</option>
-            <option>Villa</option>
-          </select>
+        <div style="flex: 1; min-width: 140px;">
+          <div class="field" id="type-field">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+            <select aria-label="Type">
+              <option value="">Type</option>
+              <option>House</option>
+              <option>Apartment</option>
+              <option>Villa</option>
+            </select>
+          </div>
+          <div class="field-error-msg" id="type-error">Please select a Type</div>
         </div>
-        <div class="field">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-          </svg>
-          <select aria-label="Price Range">
-            <option value="">Price Range</option>
-            <option>₹25 Lakh - ₹50 Lakh</option>
-            <option>₹50 Lakh - ₹1 Cr</option>
-            <option>₹1 Cr - ₹2 Cr</option>
-            <option>₹2 Cr+</option>
-          </select>
+        <div style="flex: 1; min-width: 140px;">
+          <div class="field" id="price-field">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+            <select aria-label="Price Range">
+              <option value="">Price Range</option>
+              <option>₹25 Lakh - ₹50 Lakh</option>
+              <option>₹50 Lakh - ₹1 Cr</option>
+              <option>₹1 Cr - ₹2 Cr</option>
+              <option>₹2 Cr+</option>
+            </select>
+          </div>
+          <div class="field-error-msg" id="price-error">Please select a Price Range</div>
         </div>
         <button type="button" class="btn-primary btn-search">Search</button>
       </div>
